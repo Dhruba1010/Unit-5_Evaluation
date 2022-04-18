@@ -5,10 +5,14 @@ export const ShowStudents = () => {
     const [students, setStudents] = useState([]);
 
     useEffect(() =>{
-      fetch("http://localhost:8080/students").then(d => d.json()).then(data => {
-        setStudents(data);
-      })
+
+      getData();
     },[]);
+
+    const getData = async () => {
+      const data = await fetch("http://localhost:8080/students").then(d => d.json());
+      setStudents(data);
+    };
 
     
 
