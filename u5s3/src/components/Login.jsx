@@ -23,7 +23,7 @@ export const Login = () => {
         />
         <input type="submit" value="SIGN IN" className="login_submit" onClick={() => {
           handleAuth(true);
-          navigate(-1, {replace:true});
+          navigate('/', {replace:true});
         }}/>
       </form>
     );

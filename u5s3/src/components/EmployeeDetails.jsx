@@ -12,7 +12,7 @@ export const EmployeeDetails = () => {
       axios.get(`http://localhost:8080/employee/${id}`).then(({data})=> {
         setUserDetails(data);
       })
-    },[])
+    },[id])
 
 
     return (
