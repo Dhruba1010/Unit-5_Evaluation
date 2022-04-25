@@ -1,6 +1,12 @@
+import {useContext} from 'react';
+import {useNavigate} from 'react-router-dom';
+import { AuthContext } from '../context/AuthContext';
+
 export const Login = () => {
     //  use reqres to log user in.
-  
+    const {handleAuth} = useContext(AuthContext);
+    const navigate = useNavigate();
+    
     return (
       <form className="loginform">
         <input
@@ -15,7 +21,10 @@ export const Login = () => {
           placeholder="Enter password"
           className="login_password"
         />
-        <input type="submit" value="SIGN IN" className="login_submit" />
+        <input type="submit" value="SIGN IN" className="login_submit" onClick={() => {
+          handleAuth(true);
+          navigate(-1, {replace:true});
+        }}/>
       </form>
     );
   }
